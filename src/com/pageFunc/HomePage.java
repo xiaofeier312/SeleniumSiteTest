@@ -30,10 +30,14 @@ public class HomePage {
 		return new SeleniumWebdriverPage(driver);
 	}	
 	
+	public boolean verifyHomePage() {
+		return HomeTextline2.isDisplayed();
+	}
 	
 	
 	
-	
+	@FindBy(linkText="Browser Automation1111")
+	private WebElement HomeTextline2;
 	@FindBy(linkText="Selenium WebDriver")
 	private WebElement seleniumWebdriverLlinkElement;
 }

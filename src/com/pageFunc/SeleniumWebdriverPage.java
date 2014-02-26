@@ -4,7 +4,6 @@ package com.pageFunc;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-
 import com.pageData.SeleniumWebdriverPageData;
 
 public class SeleniumWebdriverPage {
@@ -18,6 +17,7 @@ public class SeleniumWebdriverPage {
 	
 	public boolean verfyIsSlmWbdPage() {
 		System.out.println("URL : " + driver.getCurrentUrl());
+		//Assert.assertEquals( driver.getCurrentUrl(), SeleniumWebdriverPageData.SeleniumWebdriverLink);
 		return driver.getCurrentUrl().equals(SeleniumWebdriverPageData.SeleniumWebdriverLink);
 	}
 }

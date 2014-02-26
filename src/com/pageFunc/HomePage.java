@@ -15,6 +15,8 @@ import com.pageData.HomePageData;
  *
  */
 public class HomePage {
+	
+	//functions in here
 	private WebDriver driver;
 	
 	public HomePage(WebDriver driver) {

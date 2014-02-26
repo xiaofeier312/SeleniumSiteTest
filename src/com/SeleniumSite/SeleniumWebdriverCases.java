@@ -23,7 +23,7 @@ public class SeleniumWebdriverCases {
 			System.out.println("THERE is error!");
 			e.printStackTrace();
 		} finally {
-			System.out.println("This is finally!");
+			System.out.println("Case over in finally!");
 		}
 				
 		

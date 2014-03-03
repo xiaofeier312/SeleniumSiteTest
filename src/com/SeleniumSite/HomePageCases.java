@@ -39,6 +39,8 @@ public class HomePageCases {
 	@Test
 	public void OpenSlmWbdPage() throws MalformedURLException{
 		
+		System.setProperty("webdriver.ie.driver", "F:\\JavaWorkSpace\\SeleniumSiteTest\\lib\\IEDriverServer.exe");
+		
 		//WebDriver driver = new FirefoxDriver();
 		DesiredCapabilities myIECapabiliy = DesiredCapabilities.internetExplorer();
 		myIECapabiliy.setJavascriptEnabled(true);

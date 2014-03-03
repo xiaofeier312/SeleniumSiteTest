@@ -20,9 +20,13 @@ public class HomePageCases {
 	@Test
 	public void verifyHome() throws MalformedURLException {
 		
+		System.setProperty("webdriver.ie.driver", "F:\\JavaWorkSpace\\SeleniumSiteTest\\lib\\IEDriverServer.exe");
 		DesiredCapabilities myIECapabiliy = DesiredCapabilities.internetExplorer();
-		WebDriver driver = new RemoteWebDriver(new URL("http://127.0.0.1:4443"), myIECapabiliy);
+		myIECapabiliy.setJavascriptEnabled(true);
+		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4443/wd/hub"), myIECapabiliy);
 		//WebDriver driver = new InternetExplorerDriver();
+		System.out.println("Case ID: 001");
+	
 		
 		HomePage homePage;
 		
@@ -33,9 +37,13 @@ public class HomePageCases {
 	
 	//Case ID: 002
 	@Test
-	public void OpenSlmWbdPage(){
+	public void OpenSlmWbdPage() throws MalformedURLException{
 		
-		WebDriver driver = new FirefoxDriver();
+		//WebDriver driver = new FirefoxDriver();
+		DesiredCapabilities myIECapabiliy = DesiredCapabilities.internetExplorer();
+		myIECapabiliy.setJavascriptEnabled(true);
+		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4443/wd/hub"), myIECapabiliy);
+		//WebDriver driver = new InternetExplorerDriver();
 		
 		HomePage home;
 		try {

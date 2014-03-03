@@ -10,8 +10,7 @@ import com.pageFunc.SeleniumWebdriverPage;
 
 public class SeleniumWebdriverCases {
 	
-	@Test
-	public 
+
 	
 	
 		

@@ -3,8 +3,6 @@
 <suite name="Suite" parallel="none" thread-count="1">
   <test name="Test">
     <classes>
-    	<!---->
-
       <class name="com.SeleniumSite.HomePageCases"/>
     </classes>
   </test> <!-- Test -->

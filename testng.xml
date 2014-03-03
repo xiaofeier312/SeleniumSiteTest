@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite" parallel="none">
+<suite name="Suite" parallel="none" thread-count="1">
   <test name="Test">
     <classes>
-      <class name="com.SeleniumSite.testInterface"/>
-      <class name="com.SeleniumSite.SeleniumWebdriverCases"/>
+    	<!---->
+
+      <class name="com.SeleniumSite.HomePageCases"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

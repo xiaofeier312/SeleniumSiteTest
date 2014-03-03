@@ -36,7 +36,7 @@ public class HomePage {
 	
 	
 	
-	@FindBy(linkText="Browser Automation1111")
+	@FindBy(linkText="Browser Automation")
 	private WebElement HomeTextline2;
 	@FindBy(linkText="Selenium WebDriver")
 	private WebElement seleniumWebdriverLlinkElement;

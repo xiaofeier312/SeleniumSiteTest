@@ -16,6 +16,15 @@ public class TestSuite {
 		// TODO Auto-generated method stub
 		WebDriver driver = new FirefoxDriver();
 		
+		driver.get("http://www.baidu.com");
+		
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		driver.navigate().to("http://www.seleniumhq.org/docs/03_webdriver.jsp");
 		
 		WebElement docTabElement = driver.findElement(By.id("menu_documentation"));

@@ -31,6 +31,7 @@ public class HomePage {
 	}	
 	
 	public boolean verifyHomePage() {
+		System.out.println("Step1");
 		return HomeTextline2.isDisplayed();
 	}
 	

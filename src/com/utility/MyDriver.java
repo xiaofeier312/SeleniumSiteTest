@@ -24,8 +24,8 @@ public class MyDriver  {
 	
 	protected WebDriver driver = null;
 	protected DesiredCapabilities capabilities = null;
-	protected String win7IE8Address = "http://192.168.0.118:4442/wd/hub";
-	protected String win7ChromeAddress = "http://192.168.0.106:4443/wd/hub";
+	protected String win7IE8Address = "http://192.168.0.117:5555/wd/hub";
+	protected String win7ChromeAddress = "http://192.168.0.117:5555/wd/hub";
 	
 	@Parameters({"emailName"})
 	public WebDriver myDriver(String BrowserName) {

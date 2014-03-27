@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -56,7 +57,7 @@ public class HomePageCases {
 	@org.testng.annotations.Parameters("emailName")
 	@Test
 	public void verifyHome(String myEmailString) throws MalformedURLException {
-		//System.setProperty("webdriver.ie.driver", "./lib/IEDriverServer.exe");
+		System.setProperty("webdriver.ie.driver", ".\\lib\\IEDriverServer.exe");
 		System.out.println("recving myEmail: " + myEmailString);
 		
 		DesiredCapabilities myIECapabiliy = DesiredCapabilities.internetExplorer();
@@ -65,7 +66,7 @@ public class HomePageCases {
 		
 		
 		
-		WebDriver driver = new RemoteWebDriver(new URL("http://192.168.0.118:4442/wd/hub"), myIECapabiliy);
+		WebDriver driver = new RemoteWebDriver(new URL("http://192.168.0.108:4445/wd/hub"), myIECapabiliy);
 		//WebDriver driver = new InternetExplorerDriver();
 		System.out.println("Case ID: 0001");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -75,19 +76,21 @@ public class HomePageCases {
 		homePage = new HomePage(driver);
 		Assert.assertEquals(homePage.verifyHomePage(), true);
 		driver.close();
+		
+
+		
 	}
 	
 	//Case ID: 002
 	@Test
 	public void OpenSlmWbdPage() throws MalformedURLException{
 		
-		//System.setProperty("webdriver.ie.driver", "F:\\JavaWorkSpace\\SeleniumSiteTest\\lib\\IEDriverServer.exe");
-		System.setProperty("webdriver.ie.driver", "F:/JavaWorkSpace/SeleniumSiteTest/lib/IEDriverServer.exe");
+		System.setProperty("webdriver.ie.driver", "F:\\JavaWorkSpace\\SeleniumSiteTest\\lib\\IEDriverServer.exe");
 		//WebDriver driver = new FirefoxDriver();
 		DesiredCapabilities myIECapabiliy = DesiredCapabilities.internetExplorer();
 		myIECapabiliy.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
 		myIECapabiliy.setJavascriptEnabled(true);
-		WebDriver driver = new RemoteWebDriver(new URL("http://192.168.0.118:4442/wd/hub"), myIECapabiliy);
+		WebDriver driver = new RemoteWebDriver(new URL("http://192.168.0.108:4445/wd/hub"), myIECapabiliy);
 		//WebDriver driver = new InternetExplorerDriver();
 		
 		HomePage home;

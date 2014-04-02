@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite" parallel="none" thread-count="1">
-<parameter name="browser" value="win7-ie8" />
+<parameter name="browser" value="win7IE8" />
  <parameter name = "emailName" value ="myEmail" />
- 
-  <test name="Test">
-    <classes>
-      <class name="com.SeleniumSite.HomePageCases"/>
+   <test name="Test-01">
+   <groups>
+     <run>
+  		<include name="smoketest"/>
+  		<include name="normalTest"/>
+  	 </run>
+   </groups>
+   
+    <classes>	
+      		<class name="com.SeleniumSite.HomePgCases"/>    	
+      		<class name="com.utility.MyDriver"/>
     </classes>
-  </test> <!-- Test -->
+
+
+
+  </test> <!-- Test -01 -->
 </suite> <!-- Suite -->

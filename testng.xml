@@ -3,7 +3,7 @@
 <suite name="Suite" parallel="none" thread-count="1">
   <test name="Test">
     <classes>
-      <class name="com.SeleniumSite.HomePageCases"/>
+      <class name="com.SeleniumSite.HomePgCases"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

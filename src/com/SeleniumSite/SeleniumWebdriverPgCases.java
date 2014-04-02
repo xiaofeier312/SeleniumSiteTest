@@ -8,7 +8,7 @@ import com.pageFunc.HomePage;
 import com.pageFunc.SeleniumWebdriverPage;
 
 
-public class SeleniumWebdriverCases {
+public class SeleniumWebdriverPgCases {
 	
 
 	

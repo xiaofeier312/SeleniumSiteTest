@@ -4,6 +4,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
+import mx4j.tools.config.DefaultConfigurationBuilder.New;
+
+import org.hamcrest.core.CombinableMatcher;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -14,8 +17,9 @@ import org.testng.annotations.Test;
 
 import com.pageFunc.HomePage;
 import com.pageFunc.SeleniumWebdriverPage;
+import com.utility.MyDriver;
 
-public class HomePageCases {
+public class HomePgCases extends com.utility.MyDriver {
 	
 //	public static void main(String[] args) {
 //		System.setProperty("webdriver.ie.driver", "C:\\IEDriverServer.exe");
@@ -53,53 +57,55 @@ public class HomePageCases {
 //
 //	}
 	
-	//Case ID: 001
+	//Case ID: 001 verify home page displayed
 	@org.testng.annotations.Parameters("emailName")
-	@Test
+	@Test(groups={"smoketest"},description= "verify home page displayed rightly")
 	public void verifyHome(String myEmailString) throws MalformedURLException {
-		System.setProperty("webdriver.ie.driver", ".\\lib\\IEDriverServer.exe");
-		System.out.println("recving myEmail: " + myEmailString);
-		
-		DesiredCapabilities myIECapabiliy = DesiredCapabilities.internetExplorer();
-		myIECapabiliy.setJavascriptEnabled(true);
-		myIECapabiliy.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
-		
-		
-		
-		WebDriver driver = new RemoteWebDriver(new URL("http://192.168.0.108:4445/wd/hub"), myIECapabiliy);
-		//WebDriver driver = new InternetExplorerDriver();
+//		System.setProperty("webdriver.ie.driver", ".\\lib\\IEDriverServer.exe");
+//		System.out.println("recving myEmail: " + myEmailString);
+//		
+//		DesiredCapabilities myIECapabiliy = DesiredCapabilities.internetExplorer();
+//		myIECapabiliy.setJavascriptEnabled(true);
+//		myIECapabiliy.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
+//		
+//		
+//		
+//		WebDriver driver = new RemoteWebDriver(new URL("http://192.168.0.104:4444/wd/hub"), myIECapabiliy);
+//		//WebDriver driver = new InternetExplorerDriver();
 		System.out.println("Case ID: 0001");
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+		
+		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		
 		HomePage homePage;
 		
 		homePage = new HomePage(driver);
 		Assert.assertEquals(homePage.verifyHomePage(), true);
-		driver.close();
+		
 		
 
 		
 	}
 	
-	//Case ID: 002
-	@Test
+	//Case ID: 002 verify can openselmwwbdpage
+	@Test(dependsOnMethods="verifyHome",groups="normalTest", description="testing open selenium webdriver page by clicking selenium webriver link")
 	public void OpenSlmWbdPage() throws MalformedURLException{
 		
-		System.setProperty("webdriver.ie.driver", "F:\\JavaWorkSpace\\SeleniumSiteTest\\lib\\IEDriverServer.exe");
-		//WebDriver driver = new FirefoxDriver();
-		DesiredCapabilities myIECapabiliy = DesiredCapabilities.internetExplorer();
-		myIECapabiliy.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
-		myIECapabiliy.setJavascriptEnabled(true);
-		WebDriver driver = new RemoteWebDriver(new URL("http://192.168.0.108:4445/wd/hub"), myIECapabiliy);
-		//WebDriver driver = new InternetExplorerDriver();
-		
+//		System.setProperty("webdriver.ie.driver", "F:\\JavaWorkSpace\\SeleniumSiteTest\\lib\\IEDriverServer.exe");
+//		//WebDriver driver = new FirefoxDriver();
+//		DesiredCapabilities myIECapabiliy = DesiredCapabilities.internetExplorer();
+//		myIECapabiliy.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
+//		myIECapabiliy.setJavascriptEnabled(true);
+//		WebDriver driver = new RemoteWebDriver(new URL("http://192.168.0.104:4444/wd/hub"), myIECapabiliy);
+//		//WebDriver driver = new InternetExplorerDriver();
+//		
 		HomePage home;
 		try {
 			home = new HomePage(driver);	
 			SeleniumWebdriverPage seleniumWebdriverPage = home.clickSelenium_Webdriverlnk();
-			System.out.println("assert is NOT over!");
+			System.out.println("case 2 assert is NOT over!");
 			Assert.assertEquals(seleniumWebdriverPage.verfyIsSlmWbdPage(),true);
-			System.out.println("assert is over!");
+			System.out.println("case 2 assert is over!");
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("THERE is error!");			
@@ -108,7 +114,7 @@ public class HomePageCases {
 			
 		} finally {
 			System.out.println("--case2 --Case over in finally!");
-			driver.close();
+			
 		}
 	}			
 		

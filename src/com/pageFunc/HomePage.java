@@ -22,7 +22,7 @@ public class HomePage {
 	
 	public HomePage(WebDriver driver) {
 		this.driver =driver;
-		driver.navigate().to(HomePageData.homeLink);
+		driver.get(HomePageData.homeLink);
 		PageFactory.initElements(driver, this);				
 	}
 

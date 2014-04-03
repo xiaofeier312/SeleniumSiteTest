@@ -6,6 +6,8 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -28,13 +30,19 @@ public class MyDriver  {
 	@BeforeTest(alwaysRun=true, groups="smokeTest")
 	public WebDriver myDriver(String myBrowser) {
 		
-		System.out.println("browser is_" + myBrowser +"; driver is null?_" + ( driver== null));
+		//System.out.println("browser is_" + myBrowser +"; driver is null?_" + ( driver== null));
+		
 		
 		if(myBrowser.equals("win7IE8")) {
-			capabilities = DesiredCapabilities.internetExplorer();
-			capabilities.setPlatform(Platform.VISTA);
+			
+			System.out.println("runing in:(win7IE8)_" + myBrowser);
+			capabilities = new DesiredCapabilities("*iexplore", "8", Platform.VISTA);
+			
+			//capabilities = DesiredCapabilities.internetExplorer();
+			
+			//capabilities.setPlatform(Platform.VISTA);
 			capabilities.setJavascriptEnabled(true);
-			capabilities.setBrowserName("*iexplore");
+			//capabilities.setBrowserName("*iexplore");
 			capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
 			
 			try {
@@ -48,9 +56,16 @@ public class MyDriver  {
 			
 			return driver;
 		}else if (myBrowser.equals("Win7Chrome")) {
-			capabilities = DesiredCapabilities.chrome();
+			System.out.println("runing in:(chromeWin7) _" + myBrowser);
+			System.setProperty("webdriver.chrome.driver", "//lib//chromedriver.exe");
+			
+			capabilities = new DesiredCapabilities("chrome", "33", Platform.VISTA);
 			capabilities.setJavascriptEnabled(true);
-			capabilities.setBrowserName("Chrome");
+			capabilities.setBrowserName("chrome");
+			//capabilities.setBrowserName("Chrome");
+			
+			//capabilities.setCapability(ChromeDriverService.CHROME_DRIVER_EXE_PROPERTY, true);
+			
 			
 			try {
 				driver = new RemoteWebDriver(new URL(win7ChromeAddress), capabilities);
@@ -61,6 +76,8 @@ public class MyDriver  {
 			
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			
+			System.out.println("Driver is " + capabilities.getBrowserName());
+			
 			return driver;
 		}else {
 			System.out.println("Browser Parameter is wrong!!");
@@ -69,7 +86,7 @@ public class MyDriver  {
 		}
 	}
 
-	//alwasy close driver
+	//always close driver
 	@AfterTest(alwaysRun=true)
 	public void closeEachDriver() {
 		if(driver != null){

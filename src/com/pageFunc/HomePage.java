@@ -20,8 +20,10 @@ public class HomePage {
 	//functions in here
 	private WebDriver driver;
 	
-	public HomePage(WebDriver driver) {
+	public HomePage(WebDriver driver) throws InterruptedException {
 		this.driver =driver;
+		//Thread.sleep(9000);
+		
 		driver.get(HomePageData.homeLink);
 		PageFactory.initElements(driver, this);				
 	}

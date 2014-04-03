@@ -61,6 +61,7 @@ public class MyDriver  {
 			
 			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
 			driver.manage().timeouts().setScriptTimeout(55, TimeUnit.SECONDS);
+			driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
 			
 			return driver;
 		}else if (myBrowser.equals("Win7Chrome")) {
@@ -84,6 +85,7 @@ public class MyDriver  {
 			
 			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
 			driver.manage().timeouts().setScriptTimeout(55, TimeUnit.SECONDS);
+			driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
 			
 			System.out.println("Driver is " + capabilities.getBrowserName());
 			
@@ -96,6 +98,7 @@ public class MyDriver  {
 			
 			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
 			driver.manage().timeouts().setScriptTimeout(55, TimeUnit.SECONDS);
+			driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
 			
 			return driver;
 		}else{

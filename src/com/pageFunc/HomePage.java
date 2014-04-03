@@ -22,10 +22,11 @@ public class HomePage {
 	
 	public HomePage(WebDriver driver) throws InterruptedException {
 		this.driver =driver;
+		PageFactory.initElements(driver, this);
 		//Thread.sleep(9000);
 		
 		driver.get(HomePageData.homeLink);
-		PageFactory.initElements(driver, this);				
+					
 	}
 
 	public SeleniumWebdriverPage clickSelenium_Webdriverlnk() {

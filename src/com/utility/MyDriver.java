@@ -21,7 +21,7 @@ public class MyDriver  {
 	
 	protected WebDriver driver = null;
 	protected DesiredCapabilities capabilities = null;
-	protected String win7 = "http://192.168.0.125:5555/wd/hub";
+	protected String win7 = "http://192.168.0.104:4444/wd/hub";
 	protected String win7ChromeAddress = "http://192.168.0.125:5555/wd/hub";
 	
 	
@@ -60,6 +60,7 @@ public class MyDriver  {
 			}
 			
 			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			driver.manage().timeouts().setScriptTimeout(55, TimeUnit.SECONDS);
 			
 			return driver;
 		}else if (myBrowser.equals("Win7Chrome")) {
@@ -82,6 +83,7 @@ public class MyDriver  {
 			}
 			
 			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			driver.manage().timeouts().setScriptTimeout(55, TimeUnit.SECONDS);
 			
 			System.out.println("Driver is " + capabilities.getBrowserName());
 			
@@ -93,6 +95,7 @@ public class MyDriver  {
 			driver = new RemoteWebDriver(new URL(win7), capabilities);
 			
 			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			driver.manage().timeouts().setScriptTimeout(55, TimeUnit.SECONDS);
 			
 			return driver;
 		}else{

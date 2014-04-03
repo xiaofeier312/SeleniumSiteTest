@@ -60,7 +60,7 @@ public class HomePgCases extends com.utility.MyDriver {
 	//Case ID: 001 verify home page displayed
 	@org.testng.annotations.Parameters("emailName")
 	@Test(groups={"smoketest"},description= "verify home page displayed rightly")
-	public void verifyHome(String myEmailString) throws MalformedURLException {
+	public void verifyHome(String myEmailString) throws MalformedURLException, InterruptedException {
 //		System.setProperty("webdriver.ie.driver", ".\\lib\\IEDriverServer.exe");
 //		System.out.println("recving myEmail: " + myEmailString);
 //		

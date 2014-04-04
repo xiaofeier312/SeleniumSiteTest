@@ -79,9 +79,14 @@ public class HomePgCases extends com.utility.MyDriver {
 		
 		HomePage homePage;
 		
-		homePage = new HomePage(driver);
-		Assert.assertEquals(homePage.verifyHomePage(), true);
-		
+		try{
+			homePage = new HomePage(driver);
+			Assert.assertEquals(homePage.verifyHomePage(), true);
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 		
 
 		

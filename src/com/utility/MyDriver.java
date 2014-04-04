@@ -21,8 +21,9 @@ public class MyDriver  {
 	
 	protected WebDriver driver = null;
 	protected DesiredCapabilities capabilities = null;
-	protected String win7 = "http://192.168.0.104:4444/wd/hub";
-	protected String win7ChromeAddress = "http://192.168.0.125:5555/wd/hub";
+	protected String win7IE8Address = "http://192.168.0.132:4443/wd/hub";
+	protected String win7FirefoxAddress = "http://192.168.0.132:4442/wd/hub";
+	protected String win7ChromeAddress = "http://192.168.0.132:4441/wd/hub";
 	
 	
 	//ALL drivers is here
@@ -53,7 +54,7 @@ public class MyDriver  {
 			capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
 			
 			try {
-				 driver= new RemoteWebDriver(new URL(win7), capabilities);
+				 driver= new RemoteWebDriver(new URL(win7IE8Address), capabilities);
 			} catch (MalformedURLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -77,7 +78,7 @@ public class MyDriver  {
 			
 			
 			try {
-				driver = new RemoteWebDriver(new URL(win7), capabilities);
+				driver = new RemoteWebDriver(new URL(win7ChromeAddress), capabilities);
 			} catch (MalformedURLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -94,7 +95,7 @@ public class MyDriver  {
 			capabilities = new DesiredCapabilities("firefox", "27", Platform.VISTA);
 			capabilities.setJavascriptEnabled(true);
 			
-			driver = new RemoteWebDriver(new URL(win7), capabilities);
+			driver = new RemoteWebDriver(new URL(win7FirefoxAddress), capabilities);
 			
 			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
 			driver.manage().timeouts().setScriptTimeout(55, TimeUnit.SECONDS);

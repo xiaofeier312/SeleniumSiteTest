@@ -21,10 +21,11 @@ public class HomePage {
 	private WebDriver driver;
 	
 	public HomePage(WebDriver driver) throws InterruptedException {
-		this.driver =driver;
+		this.driver = driver;
 		PageFactory.initElements(driver, this);
-		//Thread.sleep(9000);
+		Thread.sleep(3000);
 		
+		System.out.println("2. Debug P0 bug!!!!! driver is null?_" + (driver == null));
 		driver.get(HomePageData.homeLink);
 					
 	}
